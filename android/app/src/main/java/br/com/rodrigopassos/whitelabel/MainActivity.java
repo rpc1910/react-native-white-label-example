@@ -1,4 +1,4 @@
-package com.whitelabelapp;
+package br.com.rodrigopassos.whitelabel;
 
 import com.facebook.react.ReactActivity;
 

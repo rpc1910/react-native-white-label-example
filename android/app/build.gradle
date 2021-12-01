@@ -131,7 +131,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.whitelabelapp"
+        applicationId "br.com.rodrigopassos.whitelabel"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -168,6 +168,17 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        acme {
+            applicationId "br.com.rodrigopassos.acme"
+        }
+        companyb {
+            applicationId "br.com.rodrigopassos.companyb"
         }
     }
 
