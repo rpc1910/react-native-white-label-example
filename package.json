@@ -3,18 +3,21 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "cross-env FLAVOR=companyb react-native run-android --variant=companybDebug",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
+    "start:acme": "cross-env FLAVOR=acme react-native start --reset-cache",
+    "start:companyb": "cross-env FLAVOR=companyb react-native start --reset-cache",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "build-android": "cd android && gradlew assembleRelease",
-    "build-android-acme": "cd android && gradlew assembleAcmeRelease",
-    "build-android-companyb": "cd android && gradlew assembleCompanybRelease"
+    "build-android": "cd android && cross-env FLAVOR=default gradlew assembleDefaultRelease",
+    "build-android-acme": "cd android && cross-env FLAVOR=acme gradlew assembleAcmeRelease",
+    "build-android-companyb": "cd android && cross-env FLAVOR=companyb gradlew assembleCompanybRelease"
   },
   "dependencies": {
     "react": "17.0.2",
-    "react-native": "0.66.3"
+    "react-native": "0.66.3",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -23,7 +26,10 @@
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.66.4",
     "@types/react-test-renderer": "^17.0.1",
+    "@types/styled-components-react-native": "^5.1.3",
     "babel-jest": "^26.6.3",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.14.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.2",
